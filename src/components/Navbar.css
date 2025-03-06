@@ -1,0 +1,85 @@
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    z-index: 1000;
+  }
+  
+  /* Default Navbar Links (Visible on Large Screens) */
+  .nav-links {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav-links button {
+    font-size: 18px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 12px 18px;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .nav-links button:hover {
+    color: #00eaff;
+  }
+  
+  /* Hamburger Menu Icon */
+  .menu-icon {
+    font-size: 28px;
+    display: none; /* ✅ Hidden on large screens */
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  /* Mobile View */
+  @media screen and (max-width: 768px) {
+    .menu-icon {
+      display: block; /* ✅ Show only on mobile */
+      z-index: 1001;
+    }
+  
+    /* Hide nav links by default (off-screen) */
+    .nav-links {
+      position: fixed;
+      top: 0;
+      right: -100%; /* ✅ Start completely hidden */
+      width: 60%;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.9);
+      flex-direction: column;
+      text-align: center;
+      padding-top: 80px;
+      transition: right 0.4s ease-in-out;
+      display: flex;
+    }
+  
+    /* Slide in when menu is open */
+    .nav-links.open {
+      right: 0;
+    }
+  
+    .nav-links button {
+      display: block;
+      padding: 15px;
+      width: 100%;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+  
+    .nav-links button:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+  }
+  
